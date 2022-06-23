@@ -1,4 +1,4 @@
-[React-Horizontal-Page](https://github.com/Horizontal-Page/react-horizontal-page) is a open source library that will help you to make a easier horizontal scrolling page.
+## [React-Horizontal-Page](https://github.com/Horizontal-Page/react-horizontal-page) is a open source library that will help you to make a easier horizontal scrolling page.
 
 ## Installation
 
@@ -11,41 +11,38 @@ Install with npm/yarn.
 
 ## API Reference
 
-| Props        | Type            | Description                                                  |
-| :----------- | :-------------- | :----------------------------------------------------------- |
-| `multiplier` | `number`        | **Optional**. _how fast the scrolling is, between_ **0 - 2** |
-| `style`      | `CSSProperties` | **Optional**. _adding style to the Wrapper_                  |
-| `className`  | `number`        | **Optional**. _adding className to the Wrapper_              |
+| Props        | Type            | Default Value | Description                                                                                                                                              |
+| :----------- | :-------------- | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `multiplier` | `number`        | `1`           | **Optional**. _multiplier for the initial height_ **0 - 2**                                                                                              |
+| `style`      | `CSSProperties` | `none`        | **Optional**. _adding style to the Wrapper_                                                                                                              |
+| `className`  | `number`        | `none`        | **Optional**. _adding className to the Wrapper_                                                                                                          |
+| `lerp`       | `number`        | `0`           | **Optional**. _Linear interpolation (lerp) intensity. Float between **0 and N >= 0**. This defines the "smoothness" intensity. The higher the smoother._ |
 
 ## Usage/Examples
 
+Basic usage
+
 ```javascript
-<!-- NOTE!! HORIZONTAL PAGE MAX HEIGHT IS 100VH -->
-<!-- NOTE!! WRAPPER IS A FLEX BOX SO YOU CAN USE FLEXBOX CSS PROPERTIES LIKE GAP -->
+// NOTE!! Horizontal page height is window.innerHeight.
+// NOTE!! Wrapper is a flex box so you can use flexbox css properties like gap.
 
 import { HorizontalPage } from "react-horizontal-page";
 
 function Page() {
   return (
-    <HorizontalPage  style={{ gap:"2em" }}>
-        <div
-          style={{
-            height: "100vh",
-            fontSize: "80vh",
-          }}
-        >
-          I DONT KNOW MY NAME
-        </div>
-        <div
-          style={{
-            height: "100vh",
-            fontSize: "80vh",
-          }}
-        >
-          MY NAME IS UNKNOWN
-        </div>
+    <HorizontalPage lerp={1}>
+      <div style={{ fontSize: "30vh", whiteSpace: "nowrap" }}>
+        He heard the crack echo in the late afternoon about a mile away. His
+        heart started racing and he bolted into a full sprint. "It wasn't a
+        gunshot, it wasn't a gunshot," he repeated under his breathlessness as
+        he continued to sprint.
+        <br /> He heard the crack echo in the late afternoon about a mile away. His
+        heart started racing and he bolted into a full sprint. "It wasn't a gunshot,
+        it wasn't a gunshot," he repeated under his breathlessness as he continued
+        to sprint.
+      </div>
     </HorizontalPage>
-  )
+  );
 }
 ```
 
@@ -64,8 +61,6 @@ Please adhere to this project's `code of conduct`.
 ## Support
 
 For support, email babailanxx@gmail.com.
-
-[React-Horizontal-Page](https://www.lua.org/) is a open source library that will help you to make a easier horizontal scrolling page.
 
 ## Features
 

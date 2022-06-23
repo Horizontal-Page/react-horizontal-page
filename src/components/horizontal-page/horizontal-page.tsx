@@ -4,7 +4,6 @@ import React, { LegacyRef, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 // calculation function in ./calc/*
 import { CalcTranslateX, CalcHeight, CalcMaxTranslate } from "./calc";
-import height from "./calc/height";
 
 const ContainerElement = styled.div({ position: "relative" });
 const StickyElement = styled.div({
@@ -24,18 +23,22 @@ type props = {
   style?: React.CSSProperties;
   className?: string | number | any;
   multiplier?: number;
+  lerp?: number;
 };
 
-/* settings Interface contains a --> 
-WrapperElement(Transforms:TranslateX CSSProperties)
-,
-ContainerElement(Height CSSProperties) */
+/* settings Interface contains WrapperElement(Transforms:TranslateX CSSProperties),ContainerElement(Height CSSProperties) */
 interface WrapperElementInterface {
   translateX: number;
   height: number;
 }
 
-function HorizontalScroll({ children, style, className, multiplier }: props) {
+function HorizontalScroll({
+  children,
+  style,
+  className,
+  multiplier,
+  lerp,
+}: props) {
   const container: LegacyRef<HTMLDivElement> = useRef();
   const wrapper: LegacyRef<HTMLDivElement> = useRef();
   const [settings, setSettings] = useState<WrapperElementInterface>({
@@ -44,7 +47,6 @@ function HorizontalScroll({ children, style, className, multiplier }: props) {
   });
 
   useEffect(() => {
-    // resize event Callback
     const containerHeight = CalcHeight(wrapper.current.scrollWidth, multiplier);
     setSettings((p) => {
       return {
@@ -52,6 +54,7 @@ function HorizontalScroll({ children, style, className, multiplier }: props) {
         height: containerHeight,
       };
     });
+    // resize event Callback
     const resize = () => {
       const containerHeight = CalcHeight(
         wrapper.current.scrollWidth,
@@ -65,6 +68,7 @@ function HorizontalScroll({ children, style, className, multiplier }: props) {
         };
       });
     };
+    // scroll event Callback
     const scroll = () => {
       // calculate the height of container
       const containerHeight = CalcHeight(
@@ -93,6 +97,7 @@ function HorizontalScroll({ children, style, className, multiplier }: props) {
       window.removeEventListener("resize", resize);
     };
   }, []);
+
   return (
     <ContainerElement
       ref={container}
@@ -104,6 +109,10 @@ function HorizontalScroll({ children, style, className, multiplier }: props) {
           style={{
             transform: `translateX(${settings.translateX}px)`,
             ...style,
+            // check if lerping is undefined.
+            transition: `${
+              lerp !== undefined ? `${lerp}s` : `0s`
+            } all cubic-bezier(0, 0, 0.58, 1)`,
           }}
           className={className}
         >

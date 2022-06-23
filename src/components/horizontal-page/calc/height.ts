@@ -12,5 +12,9 @@ export default (height: number, multiplier: number | undefined) => {
   }
   /*  if (height is lessthan 0) return 0 
  else return height*/
-  return height < 0 ? 0 : height;
+  if (height < window.innerHeight) {
+    return window.innerHeight;
+  } else {
+    return height - window.innerWidth;
+  }
 };
