@@ -1,1 +1,1 @@
-export { default as HorizontalScroll } from "./horizontal-scroll";
+export { default as HorizontalPage } from "./horizontal-page";
