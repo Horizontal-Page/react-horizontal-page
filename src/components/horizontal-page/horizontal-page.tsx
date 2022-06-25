@@ -1,5 +1,5 @@
 /* Import React with some hooks and types for typescript */
-import React, { LegacyRef, useEffect, useRef, useState } from "react";
+import React, { CSSProperties, LegacyRef, Ref, useEffect, useRef, useState } from "react";
 /* styled component for cssProperties --> https://styled-components.com/ */
 import styled from "styled-components";
 // calculation function in ./calc/*
@@ -122,4 +122,41 @@ function HorizontalScroll({
     </ContainerElement>
   );
 }
+
+type WrapperELementProps = {
+  settings: WrapperElementInterface;
+  children?: JSX.Element | React.ReactNode | string;
+  container:Ref<HTMLDivElement>;
+  wrapper:Ref<HTMLDivElement>;
+  style:CSSProperties;
+  lerp:number;
+  className:string;
+};
+
+function Wrapper({ children, settings,container ,wrapper,style ,lerp,className}:WrapperELementProps) {
+  return (
+    <ContainerElement
+      ref={container}
+      style={{ height: `${settings.height}px`, minHeight: "100vh" }}
+    >
+      <StickyElement style={{ height: "100vh" }}>
+        <WrapperElement
+          ref={wrapper}
+          style={{
+            transform: `translateX(${settings.translateX}px)`,
+            ...style,
+            // check if lerping is undefined.
+            transition: `${
+              lerp !== undefined ? `${lerp}s` : `0s`
+            } all cubic-bezier(0, 0, 0.58, 1)`,
+          }}
+          className={className}
+        >
+          {children}
+        </WrapperElement>
+      </StickyElement>
+    </ContainerElement>
+  );
+}
+
 export default HorizontalScroll;
