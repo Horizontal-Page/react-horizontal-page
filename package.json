@@ -5,15 +5,16 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "scripts": {
-    "rollup": "rollup -c -w",
-    "build": "rollup -c"
+    "dev": "rollup -c -w",
+    "rollup": "rollup -c"
   },
   "keywords": [
     "horizontal scroll",
     "scrolling",
     "vertical scroll",
-    "page scrolling"
-  ],
+    "page scrolling",
+    "horizontal page"
+  ],  
   "repository": {
     "url": "https://github.com/Horizontal-Page/react-horizontal-page"
   },
@@ -25,20 +26,22 @@
     "@rollup/plugin-typescript": "^8.3.3",
     "@types/react": "^18.0.14",
     "@types/styled-components": "^5.1.25",
+    "react": "file:../dunno/node_modules/react",
     "rollup": "^2.75.7",
     "rollup-watch": "^4.3.1",
     "styled-components": "^5.3.5",
     "tslib": "^2.4.0",
-    "typescript": "^4.7.4",
-    "react": "^18.2.0"
+    "typescript": "^4.7.4"
   },
   "files": [
     "dist"
   ],
   "types": "./dist/esm/types/index.d.ts",
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "file:../dunno/node_modules/react"
   },
   "homepage": "https://horizontal-page.vercel.app/",
-  "bugs": {"url": "https://github.com/Horizontal-Page/react-horizontal-page/issues"}
+  "bugs": {
+    "url": "https://github.com/Horizontal-Page/react-horizontal-page/issues"
+  }
 }

@@ -18,13 +18,16 @@ const WrapperElement = styled.div({
   maxHeight: "100vh",
 });
 
-type props = {
-  children?: JSX.Element | string | any;
+interface props {
+  children?: ChildrenInteface | string | React.ReactNode;
   style?: React.CSSProperties;
   className?: string | number | any;
   multiplier?: number;
   lerp?: number;
-};
+}
+interface ChildrenInteface {
+  (): any;
+}
 
 /* settings Interface contains WrapperElement(Transforms:TranslateX CSSProperties),ContainerElement(Height CSSProperties) */
 interface WrapperElementInterface {
@@ -45,7 +48,6 @@ function HorizontalScroll({
     translateX: 0,
     height: 0,
   });
-
   useEffect(() => {
     const containerHeight = CalcHeight(wrapper.current.scrollWidth, multiplier);
     setSettings((p) => {
@@ -97,7 +99,33 @@ function HorizontalScroll({
       window.removeEventListener("resize", resize);
     };
   }, []);
+  console.log(typeof children);
 
+  if (typeof children == "function") {
+    return (
+      <ContainerElement
+        ref={container}
+        style={{ height: `${settings.height}px`, minHeight: "100vh" }}
+      >
+        <StickyElement style={{ height: "100vh" }}>
+          <WrapperElement
+            ref={wrapper}
+            style={{
+              transform: `translateX(${settings.translateX}px)`,
+              ...style,
+              // check if lerping is undefined.
+              transition: `${
+                lerp !== undefined ? `${lerp}s` : `0s`
+              } all cubic-bezier(0, 0, 0.58, 1)`,
+            }}
+            className={className}
+          >
+            {children()}
+          </WrapperElement>
+        </StickyElement>
+      </ContainerElement>
+    );
+  }
   return (
     <ContainerElement
       ref={container}
