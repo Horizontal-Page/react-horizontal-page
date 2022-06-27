@@ -29,16 +29,17 @@
     "rollup-watch": "^4.3.1",
     "styled-components": "^5.3.5",
     "tslib": "^2.4.0",
-    "typescript": "^4.7.4",
-    "react": "^18.2.0"
+    "typescript": "^4.7.4"
   },
   "files": [
     "dist"
   ],
   "types": "./dist/esm/types/index.d.ts",
-  "peerDependencies": {
-    "react": "^18.2.0"
-  },
   "homepage": "https://horizontal-page.vercel.app/",
-  "bugs": {"url": "https://github.com/Horizontal-Page/react-horizontal-page/issues"}
+  "bugs": {
+    "url": "https://github.com/Horizontal-Page/react-horizontal-page/issues"
+  },
+  "dependencies": {
+    "react": "file:../testing-library/node_modules/react"
+  }
 }
