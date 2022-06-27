@@ -1,1 +1,1 @@
-export { default as useHorizontalScroll } from "./useHorizontalScroll";
+export { default as useHorizontalHook } from "./horizontalHook";

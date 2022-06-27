@@ -1,3 +1,5 @@
+// !! note the height is the wrapper scrollWidth not Y axis of the scroll 
+
 export default (height: number, multiplier: number | undefined) => {
   //   to ge the initial scroll you need to minus the window.innerheight
   height = height - window.innerHeight;
