@@ -14,11 +14,13 @@ export default [
         file: packageJSON.module,
         format: "es",
         sourcemap: true,
+        exports: "default",
       },
       {
         file: packageJSON.main,
         format: "cjs",
         sourcemap: true,
+        exports: "default",
       },
     ],
     plugins: [

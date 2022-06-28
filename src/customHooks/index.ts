@@ -1,1 +1,1 @@
-export { default as useHorizontal } from "./horizontalHook";
+export { default as useHorizontalProperties } from "./horizontalProperties";

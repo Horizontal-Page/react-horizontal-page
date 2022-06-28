@@ -1,2 +1,3 @@
-// entry point for common js
-export * from "./components";
+import horizontalPage from "./components/horizontal-page";
+
+export default horizontalPage;

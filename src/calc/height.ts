@@ -1,22 +1,24 @@
-// !! note the height is the wrapper scrollWidth not Y axis of the scroll 
+// !! note the height is the wrapper scrollWidth
 
 export default (height: number, multiplier: number | undefined) => {
-  //   to ge the initial scroll you need to minus the window.innerheight
-  height = height - window.innerHeight;
-  if (multiplier !== undefined) {
-    if (multiplier > 2) {
-      height = height * 2;
-    } else if (multiplier < 0) {
-      height = height * 0;
-    } else {
-      height = height * multiplier;
-    }
+  /* if multiplier is undefined/ungiven then make it 1, otherwise put the multiplier if it's given.
+  undefined is falsy so you dont need to check if it's true or false. */
+  multiplier = multiplier ? multiplier : 1;
+  /* without ternary operator
+  if(multiplier) {
+    multiplier = multiplier;
+  }else {
+    multiplier = 1;
   }
-  /*  if (height is lessthan 0) return 0 
- else return height*/
+  */
+
+  // to get the initial scroll you need to minus the window.innerheight also apply the multiplier effect
+  height = (height - window.innerHeight) * multiplier;
+
+  // if height is lessthan window.innerheight always return window.innerheight
   if (height < window.innerHeight) {
     return window.innerHeight;
   } else {
-    return height - window.innerWidth;
+    return height;
   }
 };

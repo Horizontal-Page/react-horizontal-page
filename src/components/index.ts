@@ -1,1 +1,3 @@
-export { default as HorizontalPage } from "./horizontal-page";
+import HorizontalPage from "./horizontal-page";
+
+export default HorizontalPage;
