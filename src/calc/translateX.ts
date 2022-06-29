@@ -1,6 +1,6 @@
-import { TranslateX } from "../interface";
+import type { TranslateX } from "../interface";
 
-function TranslateX({ container, setState }: TranslateX) {
+function CalcTranslateX({ container, setState }: TranslateX) {
   // percentage variable return a numberic number between 0 - 1
   // percentage variable check the viewport of the div
   const percentage =
@@ -28,4 +28,4 @@ function TranslateX({ container, setState }: TranslateX) {
   }
 }
 
-export default TranslateX;
+export { CalcTranslateX };

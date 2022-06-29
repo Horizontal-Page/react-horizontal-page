@@ -3,7 +3,7 @@ import { propertiesInterface } from "../horizontalProperties";
 
 interface TranslateX {
   container: React.RefObject<HTMLElement>;
-  setState: React.Dispatch<React.SetStateAction<propertiesInterface>>
+  setState: React.Dispatch<React.SetStateAction<propertiesInterface>>;
 }
 
-export default TranslateX;
+export type { TranslateX };

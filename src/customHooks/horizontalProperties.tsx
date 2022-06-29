@@ -1,8 +1,10 @@
 // Always use React for using hooks it make it cleaner
 import React from "react";
-import { propertiesInterface } from "../interface";
+import type {
+  propertiesInterface,
+  useHorizontalProperties,
+} from "../interface";
 import { CalcHeight, CalcTranslateX } from "../calc";
-import { useHorizontalProperties } from "../interface/horizontalProperties";
 
 const customHook: useHorizontalProperties = ({ multiplier }) => {
   const wrapperRef: React.RefObject<HTMLElement> = React.useRef();

@@ -1,5 +1,5 @@
 // --> src/components/horizontalPage.tsx
-import type { CSSProperties, ReactNode } from "react";
+import type React from "react";
 
 interface HorizontalPage {
   ({ multiplier }: params): any;
@@ -8,12 +8,12 @@ interface params {
   multiplier?: number | undefined;
   lerp?: number | undefined;
   className?: string;
-  style?: CSSProperties;
-  children?: children | ReactNode | JSX.Element;
+  style?:React.CSSProperties;
+  children?: children | React.ReactNode | JSX.Element;
 }
 
 interface children {
-  ({ translateX, maxTranslateX, height }?: childrenParams): ReactNode;
+  ({ translateX, maxTranslateX, height }?: childrenParams): React.ReactNode;
 }
 
 interface childrenParams {
