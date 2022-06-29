@@ -22,4 +22,4 @@ interface childrenParams {
   height: number;
 }
 
-export default HorizontalPage;
+export type { HorizontalPage };

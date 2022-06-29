@@ -1,15 +1,31 @@
-export default (height: number, offsetTop: number, maxTranslateX: number) => {
-  /* percentage of the container -> if the height is inside the container */
-  // note * this percentage uses decimal point so the 100% is 1.
-  const percentage =
-    (window.scrollY - offsetTop) / (height - window.innerHeight);
-  // always revert the sign of integer/float ---> n - (n*2)
+import { TranslateX } from "../interface";
 
+function TranslateX({ container, setState }: TranslateX) {
+  // percentage variable return a numberic number between 0 - 1
+  // percentage variable check the viewport of the div
+  const percentage =
+    (window.scrollY - container.current.offsetTop) /
+    (container.current.clientHeight - window.innerHeight);
+  const maxHeight = -Math.abs(
+    container.current.clientHeight + window.innerHeight - window.innerWidth
+  );
+  // validation
   if (percentage < 0) {
-    return 0;
+    setState((p) => {
+      return { ...p, translateX: 0 };
+    });
   } else if (percentage > 1) {
-    return -Math.abs(maxTranslateX);
+    setState((p) => {
+      return { ...p, translateX: maxHeight };
+    });
   } else {
-    return -Math.abs(percentage * maxTranslateX);
+    setState((p) => {
+      return {
+        ...p,
+        translateX: percentage * maxHeight,
+      };
+    });
   }
-};
+}
+
+export default TranslateX;

@@ -1,7 +1,3 @@
-import {
-  useHorizontalProperties,
-  propertiesInterface,
-} from "./horizontalProperties";
-import HorizontalPage from "./horizontalPage";
-
-export type { useHorizontalProperties, propertiesInterface, HorizontalPage };
+export * from "./horizontalProperties";
+export * from "./horizontalPage";
+export * from './calc'

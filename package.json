@@ -26,7 +26,7 @@
     "@rollup/plugin-typescript": "^8.3.3",
     "@types/react": "^18.0.14",
     "@types/styled-components": "^5.1.25",
-    "react": "file:../dunno/node_modules/react",
+    "react": "file:../testing-library/node_modules/react",
     "rollup": "^2.75.7",
     "rollup-watch": "^4.3.1",
     "styled-components": "^5.3.5",
@@ -38,7 +38,7 @@
   ],
   "types": "./dist/esm/types/index.d.ts",
   "peerDependencies": {
-    "react": "file:../dunno/node_modules/react"
+    "react": "file:../testing-library/node_modules/react"
   },
   "homepage": "https://horizontal-page.vercel.app/",
   "bugs": {
