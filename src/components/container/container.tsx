@@ -3,17 +3,18 @@ import { StickyElement, ContainerElement } from "../../styled-components";
 
 // containerProps
 interface ContainerProps {
-  ref: React.Ref<HTMLElement | any>;
   height: number;
   children: React.ReactNode | JSX.Element;
 }
 
-function Container({ ref, height, children }: ContainerProps) {
-  return (
-    <ContainerElement ref={ref} style={{ height: `${height}px` }}>
-      <StickyElement style={{ height: "100vh" }}>{children}</StickyElement>
+const Container = React.forwardRef(
+  (props: ContainerProps, ref: React.MutableRefObject<any>) => (
+    <ContainerElement ref={ref} style={{ height: `${props.height}px` }}>
+      <StickyElement style={{ height: "100vh" }}>
+        {props.children}
+      </StickyElement>
     </ContainerElement>
-  );
-}
+  )
+);
 
 export default Container;

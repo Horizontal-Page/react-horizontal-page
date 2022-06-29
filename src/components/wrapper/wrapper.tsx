@@ -9,30 +9,25 @@ interface WrapperProps {
   lerp?: number;
   children: React.ReactNode;
 }
-function Wrapper({
-  ref,
-  className,
-  style,
-  translateX,
-  lerp,
-  children,
-}: WrapperProps) {
-  return (
-    <WrapperElement
-      ref={ref}
-      style={{
-        transform: `translateX(${translateX}px)`,
-        ...style,
-        // check if lerping is undefined.
-        transition: `${
-          lerp !== undefined ? `${lerp}s` : `0s`
-        } all cubic-bezier(0, 0, 0.58, 1)`,
-      }}
-      className={className}
-    >
-      {children}
-    </WrapperElement>
-  );
-}
+const Wrapper = React.forwardRef(
+  (props: WrapperProps, ref: React.RefObject<HTMLElement | any>) => {
+    return (
+      <WrapperElement
+        ref={ref}
+        style={{
+          transform: `translateX(${props.translateX}px)`,
+          ...props.style,
+          // check if lerping is undefined.
+          transition: `${
+            props.lerp !== undefined ? `${props.lerp}s` : `0s`
+          } all cubic-bezier(0, 0, 0.58, 1)`,
+        }}
+        className={props.className}
+      >
+        {props.children}
+      </WrapperElement>
+    );
+  }
+);
 
 export default Wrapper;

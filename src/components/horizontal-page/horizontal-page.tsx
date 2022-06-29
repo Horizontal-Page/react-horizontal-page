@@ -11,10 +11,11 @@ const HorizontalPage: HorizontalPageInterface = ({
   style,
   children,
 }) => {
+  // hooks for properties
   const { containerRef, wrapperRef, properties } = useHorizontalProperties({
     multiplier,
   });
-
+  // if function return functional children
   if (typeof children === "function") {
     return (
       <Container ref={containerRef} height={properties.height}>
@@ -34,6 +35,8 @@ const HorizontalPage: HorizontalPageInterface = ({
       </Container>
     );
   }
+  // hello
+  // else return jsx??
   return (
     <Container ref={containerRef} height={properties.height}>
       <Wrapper
