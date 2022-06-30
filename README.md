@@ -1,4 +1,4 @@
-_[React-Horizontal-Page](https://github.com/Horizontal-Page/react-horizontal-page) is a simple open source library that will help you to make a easier horizontal scrolling page._
+_[React-Horizontal-Page](https://www.npmjs.com/package/react-horizontal-page) is a simple open source library that will help you to make a easier horizontal scrolling page._
 
 ![sample-horizontal](https://user-images.githubusercontent.com/83863770/176731112-16fd3f1a-cae8-489f-8fbe-a20609fc5742.gif)
 
