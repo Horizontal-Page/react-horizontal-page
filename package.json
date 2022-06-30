@@ -1,12 +1,13 @@
 {
   "name": "react-horizontal-page",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "React Horizontal Page make it easier to make Horizontal pages.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "scripts": {
     "dev": "rollup -c -w",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c",
+    "package": "rollup -c && npm pack && tar -xzf react-horizontal-page-0.0.4.tgz"
   },
   "keywords": [
     "horizontal scroll",
@@ -28,7 +29,7 @@
     "@rollup/plugin-typescript": "^8.3.3",
     "@types/react": "^18.0.14",
     "@types/styled-components": "^5.1.25",
-    "react": "file:../testing-library/node_modules/react",
+    "react": "file:../website/node_modules/react",
     "rollup": "^2.75.7",
     "rollup-watch": "^4.3.1",
     "styled-components": "^5.3.5",
@@ -40,7 +41,7 @@
   ],
   "types": "./dist/esm/types/index.d.ts",
   "peerDependencies": {
-    "react": "file:../testing-library/node_modules/react"
+    "react": "file:../website/node_modules/react"
   },
   "homepage": "https://horizontal-page.vercel.app/",
   "bugs": {

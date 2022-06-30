@@ -20,7 +20,7 @@ const Wrapper = React.forwardRef(
           // check if lerping is undefined.
           transition: `${
             props.lerp !== undefined ? `${props.lerp}s` : `0s`
-          } all cubic-bezier(0, 0, 0.58, 1)`,
+          } all cubic-bezier(0, 0, 0.6, 1)`,
         }}
         className={props.className}
       >

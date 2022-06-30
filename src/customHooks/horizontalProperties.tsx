@@ -21,9 +21,12 @@ const customHook: useHorizontalProperties = ({ multiplier }) => {
     CalcHeight({ multiplier, wrapper: wrapperRef, setState: setProperties });
   };
   const scroll = () => {
-    CalcTranslateX({ container: containerRef, setState: setProperties });
+    CalcTranslateX({
+      container: containerRef,
+      setState: setProperties,
+      wrapper: wrapperRef,
+    });
   };
-
   // componentDidMount
   React.useEffect(() => {
     // didMount

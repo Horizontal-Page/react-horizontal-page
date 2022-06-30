@@ -1,3 +1,3 @@
-import horizontalPage from "./components/horizontal-page";
+import HorizontalPage from "./components/horizontal-page";
 
-export default horizontalPage;
+export default HorizontalPage;

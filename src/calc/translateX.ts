@@ -1,14 +1,12 @@
 import type { TranslateX } from "../interface";
 
-function CalcTranslateX({ container, setState }: TranslateX) {
+function CalcTranslateX({ container, wrapper, setState }: TranslateX) {
   // percentage variable return a numberic number between 0 - 1
   // percentage variable check the viewport of the div
   const percentage =
     (window.scrollY - container.current.offsetTop) /
     (container.current.clientHeight - window.innerHeight);
-  const maxHeight = -Math.abs(
-    container.current.clientHeight + window.innerHeight - window.innerWidth
-  );
+  const maxHeight = wrapper.current.clientWidth - window.innerWidth;
   // validation
   if (percentage < 0) {
     setState((p) => {
@@ -16,13 +14,13 @@ function CalcTranslateX({ container, setState }: TranslateX) {
     });
   } else if (percentage > 1) {
     setState((p) => {
-      return { ...p, translateX: maxHeight };
+      return { ...p, translateX: -Math.abs(maxHeight) };
     });
   } else {
     setState((p) => {
       return {
         ...p,
-        translateX: percentage * maxHeight,
+        translateX: -Math.abs(percentage * maxHeight),
       };
     });
   }

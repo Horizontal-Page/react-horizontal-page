@@ -15,28 +15,7 @@ const HorizontalPage: HorizontalPageInterface = ({
   const { containerRef, wrapperRef, properties } = useHorizontalProperties({
     multiplier,
   });
-  // if function return functional children
-  if (typeof children === "function") {
-    return (
-      <Container ref={containerRef} height={properties.height}>
-        <Wrapper
-          style={style}
-          className={className}
-          ref={wrapperRef}
-          lerp={lerp}
-          translateX={properties.translateX}
-        >
-          {children({
-            translateX: properties.translateX,
-            maxTranslateX: properties.maxTranslateX,
-            height: properties.height,
-          })}
-        </Wrapper>
-      </Container>
-    );
-  }
-  // hello
-  // else return jsx??
+
   return (
     <Container ref={containerRef} height={properties.height}>
       <Wrapper

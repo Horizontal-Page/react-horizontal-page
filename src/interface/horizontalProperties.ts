@@ -1,3 +1,5 @@
+// this is for customHook Properties
+
 import type { MutableRefObject } from "react";
 
 // this is for useHorizontalProperties
