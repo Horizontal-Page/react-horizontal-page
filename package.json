@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "rollup -c -w",
     "rollup": "rollup -c",
-    "package": "rollup -c && npm pack && tar -xzf react-horizontal-page-0.0.4.tgz"
+    "package": "rollup -c && npm pack && tar -xzf react-horizontal-page-0.0.7.tgz"
   },
   "keywords": [
     "horizontal scroll",
@@ -46,5 +46,6 @@
   "homepage": "https://horizontal-page.vercel.app/",
   "bugs": {
     "url": "https://github.com/Horizontal-Page/react-horizontal-page/issues"
-  }
+  },
+  "dependencies": {}
 }
